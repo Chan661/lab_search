@@ -1,0 +1,598 @@
+schema_version: "1.0"
+
+ranking_policy:
+  preferred_domains:
+    - "computer_science"
+    - "data_science"
+    - "artificial_intelligence"
+    - "bioinformatics"
+  preferred_departments:
+    - "Computer Science and Engineering"
+    - "Halıcıoğlu Data Science Institute"
+    - "Bioinformatics and Systems Biology"
+  secondary_departments:
+    - "Electrical and Computer Engineering"
+    - "Bioengineering"
+  result_scoring:
+    preferred_domain_or_department: 4
+    preferred_project_subject: 3
+    substantial_computational_work: 2
+    verified_undergraduate_participation: 2
+    general_jacobs_engineering_lab: 0
+    primarily_unrelated_physical_or_laboratory_work: -3
+  expansion_rule: >-
+    Search general Jacobs School and other engineering sources after preferred
+    CSE, data science, AI, and bioinformatics sources. Investigate results from
+    secondary departments only when the work is substantially computational or
+    higher-priority sources produce too few viable leads.
+
+query_profiles:
+  broad_academic_discovery:
+    terms:
+      - "CSE"
+      - "computer science"
+      - "computing"
+      - "data science"
+      - "artificial intelligence"
+      - "bioinformatics"
+      - "computational"
+      - "research"
+      - "undergraduate research"
+  lab_and_project_discovery:
+    terms:
+      - "lab"
+      - "laboratory"
+      - "research group"
+      - "research project"
+      - "faculty project"
+      - "undergraduate project"
+      - "student researcher"
+      - "join our lab"
+      - "research opportunities"
+  advertised_roles:
+    terms:
+      - "research assistant"
+      - "undergraduate research assistant"
+      - "student research assistant"
+      - "student assistant"
+      - "programmer"
+      - "software developer"
+      - "data analyst"
+      - "lab assistant"
+  technical_specialization:
+    terms:
+      - "machine learning"
+      - "computer vision"
+      - "natural language processing"
+      - "computational biology"
+      - "biomedical informatics"
+      - "data systems"
+      - "backend"
+      - "embedded systems"
+
+sources:
+  - id: "ucsd_real_portal"
+    name: "UCSD REAL Portal"
+    url: "https://real.ucsd.edu/"
+    source_type: "authenticated_opportunity_portal"
+    authority: "official_ucsd"
+    priority: 1
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "partially_authenticated"
+      authentication_required: true
+    discovery_targets:
+      - "advertised_research_position"
+      - "undergraduate_project"
+      - "internship"
+      - "volunteer_opportunity"
+      - "academic_credit_opportunity"
+    preferred_subjects:
+      - "computer_science"
+      - "artificial_intelligence"
+      - "data_science"
+      - "bioinformatics"
+      - "computer_vision"
+      - "software_engineering"
+    query_profiles:
+      - "broad_academic_discovery"
+      - "lab_and_project_discovery"
+      - "advertised_roles"
+      - "technical_specialization"
+    extraction_method: "Search listings, then open each viable listing and its application route."
+    institutional_scope_assumption: "Portal presence alone does not establish UCSD affiliation."
+    last_verified_on: "2026-08-14"
+    notes: "Complete listing and application access may require a UCSD session."
+
+  - id: "ucsd_handshake"
+    name: "UCSD Handshake"
+    url: "https://ucsd.joinhandshake.com/explore"
+    source_type: "authenticated_employment_portal"
+    authority: "official_ucsd_gateway"
+    priority: 1
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "authenticated"
+      authentication_required: true
+    discovery_targets:
+      - "on_campus_job"
+      - "advertised_research_position"
+      - "student_technical_job"
+    preferred_subjects:
+      - "computer_science"
+      - "artificial_intelligence"
+      - "data_science"
+      - "bioinformatics"
+      - "software_engineering"
+    required_filters:
+      - "on-campus"
+    query_profiles:
+      - "broad_academic_discovery"
+      - "advertised_roles"
+      - "technical_specialization"
+    source_specific_terms:
+      - "research computing"
+      - "STDT 2"
+      - "STDT 3"
+      - "STDT 4"
+    extraction_method: "Apply the on-campus filter, search terms, and open each viable listing."
+    institutional_scope_assumption: "Verify that each result is UCSD-affiliated or an on-campus UCSD position."
+    last_verified_on: "2026-08-14"
+    notes: "Job cards and application routes require an authenticated UCSD session."
+
+  - id: "ucsd_bioinformatics_undergraduate_opportunities"
+    name: "UCSD Bioinformatics Undergraduate Opportunities"
+    url: "https://bioinformatics.ucsd.edu/undergrad/opportunities"
+    source_type: "curated_opportunity_and_lab_directory"
+    authority: "official_ucsd"
+    priority: 1
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "advertised_research_position"
+      - "undergraduate_project"
+      - "lab"
+      - "professor"
+    preferred_subjects:
+      - "bioinformatics"
+      - "computational_biology"
+      - "data_science"
+      - "artificial_intelligence"
+    extraction_method: "Follow professor, profile, lab, and project links; verify current availability."
+    institutional_scope_assumption: "Verify current UCSD appointment or qualifying affiliation."
+    last_verified_on: "2026-08-14"
+    notes: "Some entries describe possible projects rather than confirmed openings."
+
+  - id: "ucsd_cse_undergraduate_research"
+    name: "UCSD CSE Undergraduate Research"
+    url: "https://cse.ucsd.edu/undergraduate/undergraduate-research"
+    source_type: "curated_opportunity_and_lab_directory"
+    authority: "official_ucsd"
+    priority: 1
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "advertised_research_position"
+      - "undergraduate_project"
+      - "lab"
+      - "professor"
+    preferred_subjects:
+      - "computer_science"
+      - "artificial_intelligence"
+      - "data_science"
+      - "bioinformatics"
+      - "computer_vision"
+      - "systems"
+    extraction_method: "Follow listed faculty, lab, project, and opportunity links."
+    institutional_scope_assumption: "Verify current UCSD affiliation for every extracted lead."
+    last_verified_on: "2026-08-14"
+    notes: "Use once for both advertised-opening and lab-discovery passes."
+
+  - id: "ucsd_e4e_open_opportunities"
+    name: "UCSD Engineers for Exploration Open Opportunities"
+    url: "https://e4e.ucsd.edu/open-opportunities"
+    source_type: "advertised_project_opportunity_page"
+    authority: "official_ucsd_program"
+    priority: 1
+    domain_tier: 2
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "advertised_research_position"
+      - "undergraduate_project"
+      - "student_technical_role"
+    preferred_subjects:
+      - "artificial_intelligence"
+      - "computer_vision"
+      - "software_engineering"
+      - "data_science"
+      - "embedded_systems"
+    extraction_method: "Extract current openings and follow the stated E4E application route."
+    institutional_scope_assumption: "UCSD program affiliation is expected but should be recorded per opportunity."
+    last_verified_on: "2026-08-14"
+    notes: "Prioritize software, ML, computer vision, and data projects."
+
+  - id: "ucsd_student_research_directory"
+    name: "UCSD Student Research Directory"
+    url: "https://students.ucsd.edu/academics/research/index.html"
+    source_type: "official_research_gateway"
+    authority: "official_ucsd"
+    priority: 2
+    domain_tier: 2
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "source_page"
+      - "research_program"
+      - "opportunity_directory"
+    preferred_subjects:
+      - "computer_science"
+      - "data_science"
+      - "artificial_intelligence"
+      - "bioinformatics"
+    extraction_method: "Follow official undergraduate research and opportunity links."
+    institutional_scope_assumption: "Verify scope at the destination page."
+    last_verified_on: "2026-08-14"
+    notes: "Use mainly to discover additional official UCSD sources."
+
+  - id: "ucsd_undergraduate_research_hub"
+    name: "UCSD Undergraduate Research Hub"
+    url: "https://ugresearch.ucsd.edu/"
+    source_type: "official_research_gateway"
+    authority: "official_ucsd"
+    priority: 2
+    domain_tier: 2
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "research_program"
+      - "opportunity_announcement"
+      - "mentor_finding_resource"
+      - "research_calendar"
+    preferred_subjects:
+      - "computer_science"
+      - "data_science"
+      - "artificial_intelligence"
+      - "bioinformatics"
+    extraction_method: "Check current announcements, calendars, and linked opportunity sources."
+    institutional_scope_assumption: "Verify scope and eligibility for each destination."
+    last_verified_on: "2026-08-14"
+    notes: "Add specific programs separately only when a relevant application cycle is current."
+
+  - id: "ucsd_gear_partner_labs"
+    name: "Jacobs School Labs Partnered with GEAR"
+    url: "https://jacobsschool.ucsd.edu/idea/current-undergraduates/gear/labs-partnered-with-gear"
+    source_type: "undergraduate_lab_history_directory"
+    authority: "official_ucsd"
+    priority: 2
+    domain_tier: 3
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "lab"
+      - "professor"
+      - "undergraduate_participation_evidence"
+    preferred_subjects:
+      - "computer_science"
+      - "data_science"
+      - "artificial_intelligence"
+      - "bioinformatics"
+      - "software_engineering"
+    result_routing:
+      preferred_departments:
+        - "Computer Science and Engineering"
+        - "Halıcıoğlu Data Science Institute"
+        - "Bioinformatics and Systems Biology"
+      secondary_departments:
+        - "Electrical and Computer Engineering"
+        - "Bioengineering"
+    extraction_method: "Process preferred departments first; inspect other labs only for substantial computational relevance."
+    institutional_scope_assumption: "Directory establishes UCSD context; verify current lab and faculty status."
+    last_verified_on: "2026-08-14"
+    notes: "Past participation is not proof of current recruitment."
+
+  - id: "ucsd_jacobs_undergraduate_research"
+    name: "Jacobs School Undergraduate Research"
+    url: "https://jacobsschool.ucsd.edu/idea/undergraduate-research"
+    source_type: "engineering_research_gateway"
+    authority: "official_ucsd"
+    priority: 2
+    domain_tier: 3
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "opportunity_announcement"
+      - "lab"
+      - "professor"
+      - "research_resource"
+    preferred_subjects:
+      - "computer_science"
+      - "data_science"
+      - "artificial_intelligence"
+      - "bioinformatics"
+    extraction_method: "Prioritize computational research and use other engineering areas as selective expansion."
+    institutional_scope_assumption: "Verify the current lab, professor, and opportunity status."
+    last_verified_on: "2026-08-14"
+    notes: "Secondary to specialized CSE, data science, AI, and bioinformatics sources."
+
+  - id: "ucsd_cse_research_areas"
+    name: "UCSD CSE Research Areas"
+    url: "https://cse.ucsd.edu/research"
+    source_type: "faculty_and_research_directory"
+    authority: "official_ucsd"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "lab"
+      - "professor"
+      - "research_group"
+    preferred_subjects:
+      - "artificial_intelligence"
+      - "bioinformatics"
+      - "computer_vision"
+      - "software_engineering"
+      - "databases"
+      - "systems"
+      - "human_computer_interaction"
+      - "embedded_systems"
+    extraction_method: "Open prioritized research groups, then follow faculty and lab pages."
+    institutional_scope_assumption: "Official CSE directory establishes UCSD affiliation; verify current appointment and lab activity."
+    last_verified_on: "2026-08-14"
+    notes: null
+
+  - id: "ucsd_ai_faculty"
+    name: "UCSD Artificial Intelligence Faculty"
+    url: "https://ai.ucsd.edu/faculty"
+    source_type: "faculty_directory"
+    authority: "official_ucsd"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "lab"
+      - "research_group"
+    preferred_subjects:
+      - "artificial_intelligence"
+      - "machine_learning"
+      - "natural_language_processing"
+      - "computer_vision"
+      - "robotics"
+      - "data_mining"
+    extraction_method: "Follow each relevant faculty member to an official profile and lab website."
+    institutional_scope_assumption: "Verify whether listed affiliated faculty hold a current qualifying UCSD appointment."
+    last_verified_on: "2026-08-14"
+    notes: null
+
+  - id: "ucsd_visual_computing_faculty"
+    name: "UCSD Center for Visual Computing Faculty"
+    url: "https://visualcomputing.ucsd.edu/faculty.shtml"
+    source_type: "faculty_directory"
+    authority: "official_ucsd_center"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "lab"
+      - "research_group"
+    preferred_subjects:
+      - "computer_vision"
+      - "medical_imaging"
+      - "machine_learning"
+      - "graphics"
+      - "visualization"
+    extraction_method: "Follow relevant faculty descriptions to current profiles and lab websites."
+    institutional_scope_assumption: "Verify current UCSD appointment and lab activity."
+    last_verified_on: "2026-08-14"
+    notes: null
+
+  - id: "ucsd_computing_education_research"
+    name: "UCSD Computing Education Research"
+    url: "https://csed.ucsd.edu/"
+    source_type: "research_group_directory"
+    authority: "official_ucsd_group"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "lab"
+      - "research_group"
+    preferred_subjects:
+      - "computing_education"
+      - "educational_technology"
+      - "human_computer_interaction"
+      - "software_tools"
+    extraction_method: "Follow faculty and lab links and verify undergraduate participation and current activity."
+    institutional_scope_assumption: "Verify current UCSD appointment and lab activity."
+    last_verified_on: "2026-08-14"
+    notes: null
+
+  - id: "ucsd_hdsi_research_areas"
+    name: "Halıcıoğlu Data Science Institute Research Areas"
+    url: "https://datascience.ucsd.edu/portfolio-category/faculty-research-areas/"
+    source_type: "faculty_and_research_directory"
+    authority: "official_ucsd"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "lab"
+      - "research_group"
+    preferred_subjects:
+      - "artificial_intelligence"
+      - "machine_learning"
+      - "biomedical_data_science"
+      - "data_infrastructure"
+      - "scientific_discovery"
+      - "statistics"
+    extraction_method: "Open preferred research areas, then follow faculty to official profiles and lab websites."
+    institutional_scope_assumption: "Verify current UCSD appointment and lab activity."
+    last_verified_on: "2026-08-14"
+    notes: null
+
+  - id: "ucsd_profiles_advanced_search"
+    name: "UCSD Profiles Advanced Search"
+    url: "https://profiles.ucsd.edu/search/advanced"
+    source_type: "faculty_topic_search"
+    authority: "official_ucsd"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "researcher"
+      - "lab"
+    preferred_subjects:
+      - "machine_learning"
+      - "data_science"
+      - "biomedical_informatics"
+      - "computer_vision"
+      - "medical_imaging"
+      - "natural_language_processing"
+      - "bioinformatics"
+      - "computational_biology"
+    extraction_method: "Search by topic, then follow profiles to official appointments, groups, and lab sites."
+    institutional_scope_assumption: "Verify current UCSD appointment and whether the researcher supervises undergraduates."
+    last_verified_on: "2026-08-14"
+    notes: "Particularly useful for UCSD Health and interdisciplinary research."
+
+  - id: "ucsd_bioinformatics_faculty_by_area"
+    name: "UCSD Bioinformatics Faculty by Research Area"
+    url: "https://www.bioinformatics.ucsd.edu/faculty/ra"
+    source_type: "faculty_and_lab_directory"
+    authority: "official_ucsd"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "lab"
+      - "research_group"
+    preferred_subjects:
+      - "predictive_modeling"
+      - "biomedical_natural_language_processing"
+      - "human_disease_bioinformatics"
+      - "computational_biology"
+      - "genomics"
+      - "proteomics"
+      - "biological_data_systems"
+    extraction_method: "Use research-area entries and follow profile and lab-site links."
+    institutional_scope_assumption: "Verify current UCSD appointment or qualifying affiliated relationship."
+    last_verified_on: "2026-08-14"
+    notes: null
+
+  - id: "ucsd_cse_bioinformatics_group"
+    name: "UCSD CSE Bioinformatics Group"
+    url: "https://cse.ucsd.edu/research/bioinformatics"
+    source_type: "faculty_and_research_group_directory"
+    authority: "official_ucsd"
+    priority: 3
+    domain_tier: 1
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "lab"
+      - "research_group"
+      - "affiliated_center"
+    preferred_subjects:
+      - "bioinformatics"
+      - "computational_biology"
+      - "machine_learning"
+      - "biomedical_data_science"
+    extraction_method: "Follow faculty and affiliated-center links to current lab and project pages."
+    institutional_scope_assumption: "Verify current appointment and qualifying affiliation for affiliate faculty."
+    last_verified_on: "2026-08-14"
+    notes: null
+
+  - id: "ucsd_ece_faculty"
+    name: "UCSD ECE Faculty Directory"
+    url: "https://www.ece.ucsd.edu/people/faculty"
+    source_type: "faculty_directory"
+    authority: "official_ucsd"
+    priority: 3
+    domain_tier: 3
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "professor"
+      - "lab"
+    preferred_subjects:
+      - "artificial_intelligence"
+      - "computer_vision"
+      - "signal_processing"
+      - "data_systems"
+      - "embedded_intelligence"
+      - "computational_imaging"
+      - "biomedical_computing"
+    extraction_method: "Use selectively; follow Lab Web links only for substantially computational research."
+    institutional_scope_assumption: "Official directory establishes current department context; verify lab activity."
+    last_verified_on: "2026-08-14"
+    notes: "Secondary expansion after CSE, data science, AI, and bioinformatics sources."
+
+  - id: "ucsd_student_employment_office"
+    name: "UCSD Student Employment Office"
+    url: "https://blink.ucsd.edu/HR/employment/student-employment/"
+    source_type: "employment_guidance_gateway"
+    authority: "official_ucsd"
+    priority: null
+    domain_tier: null
+    enabled: true
+    access:
+      mode: "public"
+      authentication_required: false
+    discovery_targets:
+      - "employment_guidance"
+      - "source_page"
+    preferred_subjects: []
+    extraction_method: "Use for official guidance and follow its Handshake route for actual listings."
+    institutional_scope_assumption: "Not an opportunity listing source."
+    last_verified_on: "2026-08-14"
+    notes: "Supporting source only; do not treat as a listing extraction source."

@@ -1,0 +1,13 @@
+{
+  "schema_version": "1.0",
+  "algorithm": "sha256",
+  "files": {
+    ".gitignore": "7235e5971ed6c301f5336eab9c042765faf2dba575b149ef8281ea68a424692e",
+    "package.json": "c517bc17c17f359eb5d2ac24d8d3754ef143afd797b966b468c03dd44eaa881e",
+    "package-lock.json": "708f82b57a0de37aa6a9d5847a132d61d4d7941a3cf027ba888f119df2a0d8ce",
+    "scripts/validate-source-catalog.mjs": "280cf02dbc328514485b13899d62f47edb9f10f58cb33265d55ba9b31c932f65",
+    "scripts/verify-tooling-integrity.mjs": "88b5e8a698c09551e612a0327aab537a3b69a9ca9e4e7656b711fd5b4f2770c7",
+    "test/source-catalog.test.mjs": "3715e9292ddeea5faa369b8e7ca6844f8a68e794fae3f2ac11964c64c41287c8",
+    "test/tooling-integrity.test.mjs": "0ff745a16678c5be2b0c3b29fe589f5d09896a516d124756017e94cb9939b437"
+  }
+}

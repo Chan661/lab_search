@@ -1,0 +1,41 @@
+schema_version: "1.0"
+
+identity:
+  preferred_name: "Hannah Cheng"
+  full_name: "Han Cheng"
+
+education:
+  university: "University of California, San Diego"
+  degree: "Bachelor of Science"
+  major: "Computer Science"
+  enrollment_start: "2025-09"
+  expected_graduation: "2029-06"
+  standing_2026_2027: "junior-standing undergraduate"
+  source: "profile/cv/cv.md"
+
+immigration_and_employment:
+  immigration_status: "F-1"
+  individual_on_campus_eligibility:
+    status: "user-confirmed"
+    confirmed_on: "2026-08-14"
+    confirmation_source: "user statement"
+    note: >-
+      The student reports being eligible for on-campus employment and having
+      the documents needed for Form I-9. Position-specific hiring and employer
+      verification requirements still apply.
+  general_on_campus_rules:
+    source_name: "UC San Diego International Services and Engagement Office"
+    source_url: "https://iseo.ucsd.edu/student-services/working-in-us/f1-on-campus.html#eligibility"
+    verified_on: "2026-08-10"
+    full_course_of_study_required: true
+    maximum_hours_per_week_while_school_is_in_session: 20
+    full_time_permitted_during_official_breaks_and_vacation_term: true
+    individual_applicability: "user-confirmed"
+  off_campus_employment:
+    applicable_us_student_work_authorization_required: true
+    confirmed_authorization_categories: []
+    eligibility_without_position_specific_confirmation: "unknown"
+  sponsorship:
+    required_now: false
+    future_availability_preferred: true
+    future_availability_required: false

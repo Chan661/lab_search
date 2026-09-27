@@ -1,0 +1,16 @@
+{
+  "name": "ucsd-lab-search",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "validate:sources": "node scripts/validate-source-catalog.mjs",
+    "verify:tooling": "node scripts/verify-tooling-integrity.mjs",
+    "refresh:tooling-integrity": "node scripts/verify-tooling-integrity.mjs --write",
+    "test": "node --test",
+    "check": "npm run validate:sources && npm run verify:tooling && npm test"
+  },
+  "dependencies": {
+    "yaml": "^2.9.0"
+  }
+}

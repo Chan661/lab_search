@@ -1,0 +1,7 @@
+interface:
+  display_name: "Discover and Filter Opportunities"
+  short_description: "Find and initially filter UCSD opportunities"
+  default_prompt: "Use $discover-and-filter to run a bounded UCSD opportunity search and prepare evidence-backed candidates for secondary evaluation."
+
+policy:
+  allow_implicit_invocation: true

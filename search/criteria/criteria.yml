@@ -1,0 +1,145 @@
+schema_version: "1.0"
+
+target_periods:
+  academic_year_2026_2027:
+    start_date: "2026-09-25"
+    end_date: "2027-06-11"
+  summer_2027:
+    onsite_or_hybrid_start_date: "2027-06-11"
+    remote_start_date: null
+    remote_start_flexibility: "any time"
+    approximate_end_date: "2027-09-20"
+
+availability:
+  academic_year:
+    typical_hours_per_week:
+      minimum: 5
+      maximum: 7
+    reliably_available_days:
+      - "Saturday"
+      - "Sunday"
+    potentially_available_days:
+      - "Wednesday"
+      - "Friday"
+    weekday_availability_guaranteed: false
+  higher_availability_periods:
+    - start_date: "2026-12-13"
+      end_date: "2027-01-03"
+      approximate_hours_per_week:
+        minimum: 15
+        maximum: 17
+    - start_date: "2027-03-21"
+      end_date: "2027-03-28"
+      approximate_hours_per_week:
+        minimum: 15
+        maximum: 17
+
+interests:
+  primary_role: "Software Engineer Intern"
+  career_direction_fixed: false
+  research_focus: "AI/ML generally"
+  preferred_research_applications:
+    - "computer vision"
+    - "bioinformatics"
+    - "data"
+  technical_interest_order:
+    - "AI/ML"
+    - "full-stack products"
+    - "backend systems"
+    - "data analysis"
+    - "embedded systems"
+
+preferred_work_characteristics:
+  - "ownership"
+  - "visible usefulness"
+  - "creative problem-solving"
+  - "personally meaningful projects"
+  - "enough time for demanding conceptual work"
+
+less_preferred_work_characteristics:
+  - "repetitive work"
+  - "answering application questions"
+  - "sustained work outside the student's discipline"
+  - "theoretical mathematics under deadline pressure"
+
+accepted_opportunity_types:
+  paid: true
+  unpaid: true
+  academic_credit: true
+  volunteer: true
+  advertised: true
+  unadvertised_direct_outreach: true
+
+location_and_arrangement:
+  academic_year:
+    onsite_locations:
+      - "San Diego, California"
+    remote_locations:
+      - "United States"
+      - "international, when genuinely viable"
+    hybrid_locations:
+      - "United States"
+      - "international, when genuinely viable"
+    non_san_diego_hybrid_feasibility_requires_confirmation: true
+    relocation_or_commute_must_not_be_assumed: true
+  summer:
+    arrangements:
+      - "remote"
+      - "hybrid"
+      - "onsite"
+    locations:
+      - "worldwide"
+    preferred_regions:
+      - "California"
+      - "Washington"
+    preferred_cities:
+      - "San Diego"
+      - "Seattle"
+      - "Los Angeles"
+      - "San Francisco"
+
+compensation:
+  paid_preferred: true
+  competitive_market_pay_preferred: true
+  strict_minimum: null
+  us_reference_hourly_rate_when_local_rate_unknown: 17
+  currency: "USD"
+  reject_below_reference_automatically: false
+  evaluation_note: >-
+    Compare compensation with applicable local law and market conditions. Use
+    the current legal minimum when it is higher than the reference rate.
+
+eligibility_constraints:
+  off_campus_us_employment_must_support_applicable_f1_authorization: true
+  clear_authorization_incompatibility: "major negative fit signal"
+  unmentioned_international_student_eligibility: "unknown"
+  unmentioned_work_authorization_compatibility: "unknown"
+
+hard_constraints:
+  excluded_roles: []
+  excluded_industries: []
+  excluded_technologies: []
+  excluded_workplace_arrangements: []
+  excluded_company_cultures: []
+  separate_maximum_hours_per_week: null
+
+search_scope:
+  current_university: "University of California, San Diego"
+  institutional_scope_required: true
+  qualifying_scope_conditions:
+    - "The position is administered by UC San Diego."
+    - "The position is supervised by someone with a current UC San Diego appointment."
+    - "The lab or organizational unit is officially part of or affiliated with UC San Diego."
+    - "An affiliated hospital, institute, or research center explicitly accepts students through UC San Diego."
+    - "The position is physically or administratively an on-campus UC San Diego position."
+  portal_listing_alone_establishes_affiliation: false
+  include_external_employers_without_verified_ucsd_affiliation: false
+  ambiguous_affiliation_requires_verification: true
+  unrestricted_external_search: false
+
+seed_leads:
+  - employer: "GAO Tek Inc."
+    portal: "REAL Portal"
+    listing_identifier: "684"
+    title: "Artificial Intelligence (AI) Intern"
+    verification_status: "institutional_scope_unverified"
